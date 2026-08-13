@@ -14,6 +14,8 @@ coverage/
 data/raw/
 data/private/
 data/exports/
+data/local/
+manifests/private/
 *.csv
 *.xlsx
 *.parquet

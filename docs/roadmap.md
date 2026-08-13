@@ -2,7 +2,9 @@
 
 ## Phase 1 — Foundation and research framework
 
-**Deliverables:** repository structure, documentation framework, Sacramento research specification, California county catalog, and source worksheets.
+**Deliverables:** repository structure, documentation framework, Sacramento research specification, California county catalog, source worksheets, and a synthetic data-safe software foundation.
+
+**Implementation progress:** External-drive configuration guards, metadata manifests and checksums, SQLite provenance migrations, privacy field enforcement, canonical validation, synthetic Sacramento fixtures, and automated tests are implemented. No real County data or live source is processed.
 
 **Exit gate:** stakeholders agree on scope, status vocabulary, research fields, and evidence requirements.
 
@@ -16,7 +18,7 @@ Research Recorder, Assessor, Tax Collector, Courts, GIS/Open Data, and Code Enfo
 
 Choose a narrow use case and the smallest approved source set. Define privacy and compliance controls, canonical fields, service-level expectations, test fixtures, and acceptance metrics.
 
-**Progress:** A provisional Sacramento parcel-research charter, data contract, acceptance plan, and agency request package are drafted. Implementation remains blocked pending Assessor/GIS responses and a recorded source/field approval.
+**Progress:** A provisional Sacramento parcel-research charter, data contract, acceptance plan, and agency request package are drafted. Synthetic foundation work may proceed, but real-data implementation remains blocked pending Assessor/GIS responses and a recorded source/field approval.
 
 **Parallel source work:** Recorder expansion is defined as a separate gate. The preferred path is the Assessor’s monthly two-year transfer file, followed by an official Recorder bulk product if one exists; portal scraping is excluded.
 

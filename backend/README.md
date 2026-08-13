@@ -1,3 +1,40 @@
 # Backend
 
-Reserved for future services after source approval and pilot design. No ingestion implementation belongs here during the research phase.
+The Phase 1 backend is a standard-library Python foundation. It contains no downloader, scraper, live-source connector, or County-specific parser.
+
+## Included
+
+- external data-root configuration with repository-boundary checks;
+- metadata-only SHA-256 source manifests;
+- a field-level privacy policy;
+- provisional canonical-record validation;
+- an idempotent SQLite metadata/provenance schema; and
+- local commands for configuration checks, database setup, and manifest output.
+
+## Local setup
+
+Python 3.11 or later is required. The tests can run without installing the package:
+
+```bash
+PYTHONPATH=backend python3 -m unittest discover -s tests -v
+```
+
+For an editable installation in a virtual environment:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -e .
+```
+
+Copy `.env.example` to an untracked `.env` or export the values in the shell. The current external data root is expected to be:
+
+```text
+/Volumes/GSTUDIOT7/Realestate_Projects/CA_Distressed_AI/real-estate-intelligence
+```
+
+The application does not load `.env` automatically. This avoids silently importing configuration; export the variables through the shell or a future approved secret/configuration tool.
+
+## Safety boundary
+
+`rei manifest` reads a source file only to calculate its size and SHA-256 digest. Its JSON output stores only the filename, never the full external path. Do not redirect manifest output into Git until it has been reviewed for non-sensitive metadata.

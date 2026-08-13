@@ -4,24 +4,25 @@ Documentation-first groundwork for a California real-estate intelligence platfor
 
 ## Current phase
 
-The repository is in **Phase 1: source discovery and specification**. It contains no production ingestion code, scrapers, database migrations, or user interface implementation.
+The repository is in **Phase 1: source discovery and data-safe foundation**. It now contains a local metadata/provenance schema, privacy controls, synthetic fixtures, validation, and tests. It contains no production ingestion, scrapers, live County connectors, or user interface implementation.
 
 ## Repository map
 
 - `docs/` — product boundaries, architecture, roadmap, conceptual data model, and scoring principles.
 - `research/` — county source catalog and county-specific research records.
-- `backend/` — reserved for later application and ingestion services.
+- `backend/` — privacy-safe Python foundation and SQLite metadata schema; no live acquisition code.
 - `frontend/` — reserved for later analyst workflows and user interface code.
-- `data/` — reserved for local development fixtures; raw public-record exports must not be committed.
+- `data/` — synthetic development fixtures and ignored local metadata; raw public-record exports must not be committed.
 - `scripts/` — reserved for later operational tooling.
-- `tests/` — reserved for future automated validation.
+- `tests/` — automated configuration, privacy, provenance, schema, and validation checks.
 
 ## Working sequence
 
 1. Define the documentation and research framework.
 2. Research and approve Sacramento County sources.
 3. Expand the California county catalog using the same evidence standard.
-4. Design an ingestion pilot only after source access, legal, privacy, and quality reviews pass.
+4. Build and test a synthetic, data-safe foundation while approval questions are pending.
+5. Design and run a real-data ingestion pilot only after source access, legal, privacy, and quality reviews pass.
 
 See [the roadmap](docs/roadmap.md) for phase gates and [the Sacramento research specification](research/california/sacramento/source-research-spec.md) for the required evidence.
 
