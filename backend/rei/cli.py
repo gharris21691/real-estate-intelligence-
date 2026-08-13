@@ -9,6 +9,7 @@ import sys
 from .config import ConfigurationError, Settings
 from .database import initialize_database
 from .manifest import build_manifest
+from .pipeline import load_synthetic_fixture, run_synthetic_pipeline
 
 
 def parser() -> argparse.ArgumentParser:
@@ -27,6 +28,13 @@ def parser() -> argparse.ArgumentParser:
     manifest.add_argument("--jurisdiction", required=True)
     manifest.add_argument("--effective-date")
     manifest.set_defaults(handler=_manifest)
+
+    synthetic = commands.add_parser(
+        "validate-synthetic", help="validate an explicitly synthetic fixture"
+    )
+    synthetic.add_argument("path", type=Path)
+    synthetic.add_argument("--output", type=Path)
+    synthetic.set_defaults(handler=_validate_synthetic)
     return root
 
 
@@ -63,11 +71,31 @@ def _manifest(args: argparse.Namespace) -> int:
     return 0
 
 
+def _validate_synthetic(args: argparse.Namespace) -> int:
+    repository_root = Path.cwd().resolve()
+    fixture_root = repository_root / "data/fixtures"
+    fixture = args.path.expanduser().resolve(strict=True)
+    try:
+        fixture.relative_to(fixture_root)
+    except ValueError as error:
+        raise ConfigurationError("Synthetic fixtures must be inside data/fixtures") from error
+
+    report = run_synthetic_pipeline(load_synthetic_fixture(fixture))
+    if args.output:
+        output = args.output.expanduser().resolve()
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(report.to_json(), encoding="utf-8")
+        print(f"Wrote synthetic quality report: {output}")
+    else:
+        print(report.to_json(), end="")
+    return 0 if report.reconciliation_passed and report.rejected_count == 0 else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
     try:
         return args.handler(args)
-    except (ConfigurationError, FileNotFoundError, ValueError) as error:
+    except (ConfigurationError, FileNotFoundError, ValueError, OSError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 2
 

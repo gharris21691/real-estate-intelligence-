@@ -8,6 +8,7 @@ The Phase 1 backend is a standard-library Python foundation. It contains no down
 - metadata-only SHA-256 source manifests;
 - a field-level privacy policy;
 - provisional canonical-record validation;
+- synthetic-only normalization, exception routing, and reconciliation reports;
 - an idempotent SQLite metadata/provenance schema; and
 - local commands for configuration checks, database setup, and manifest output.
 
@@ -38,3 +39,12 @@ The application does not load `.env` automatically. This avoids silently importi
 ## Safety boundary
 
 `rei manifest` reads a source file only to calculate its size and SHA-256 digest. Its JSON output stores only the filename, never the full external path. Do not redirect manifest output into Git until it has been reviewed for non-sensitive metadata.
+
+Run the end-to-end synthetic acceptance path from the repository root:
+
+```bash
+PYTHONPATH=backend python3 -m rei.cli validate-synthetic \
+  data/fixtures/sacramento_assessment_synthetic.json
+```
+
+The command refuses files outside `data/fixtures` and refuses JSON that does not carry the exact synthetic-data notice. It reports a deterministic input fingerprint, transformation version, accepted/review/rejected counts, and non-sensitive issue codes. It does not write normalized records.
