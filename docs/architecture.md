@@ -35,6 +35,7 @@ Every normalized fact must retain the source, retrieval time, source record iden
 - Source manifests contain filename, size, SHA-256, timing, and source metadata but omit the full external path.
 - The SQLite schema records source definitions, artifacts, runs, parcel observations, and validation issues.
 - Privacy filtering rejects prohibited fields before a record can enter the provisional canonical model.
+- Machine-readable source policies require access, terms, privacy, data, and operations gates; real sources must also be explicitly marked `approved_for_pilot` and enabled.
 - Tests and fixtures are synthetic and do not require the external drive.
 - There is no downloader, scraper, scheduled job, live endpoint query, or real-roll parser.
 

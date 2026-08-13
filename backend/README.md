@@ -9,6 +9,7 @@ The Phase 1 backend is a standard-library Python foundation. It contains no down
 - a field-level privacy policy;
 - provisional canonical-record validation;
 - synthetic-only normalization, exception routing, and reconciliation reports;
+- machine-enforced source approval gates;
 - an idempotent SQLite metadata/provenance schema; and
 - local commands for configuration checks, database setup, and manifest output.
 
@@ -48,3 +49,11 @@ PYTHONPATH=backend python3 -m rei.cli validate-synthetic \
 ```
 
 The command refuses files outside `data/fixtures` and refuses JSON that does not carry the exact synthetic-data notice. It reports a deterministic input fingerprint, transformation version, accepted/review/rejected counts, and non-sensitive issue codes. It does not write normalized records.
+
+Inspect the current execution gates:
+
+```bash
+PYTHONPATH=backend python3 -m rei.cli source-status
+```
+
+The policy file is `config/source-policies.json`. Only the synthetic fixture is executable. The real Sacramento secured roll and GIS source have empty allowlists and remain disabled until every named approval gate is complete and their status is explicitly changed to `approved_for_pilot`.

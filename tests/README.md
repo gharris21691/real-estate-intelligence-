@@ -1,6 +1,6 @@
 # Tests
 
-The Phase 1 test suite covers external-path safety, metadata manifests, privacy policy enforcement, canonical validation, synthetic reconciliation, exception routing, and idempotent database initialization.
+The Phase 1 test suite covers external-path safety, metadata manifests, privacy policy enforcement, source approval gates, canonical validation, synthetic reconciliation, exception routing, and idempotent database initialization.
 
 Run it from the repository root:
 

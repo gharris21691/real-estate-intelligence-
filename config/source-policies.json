@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "default_enabled": false,
+  "sources": [
+    {
+      "id": "synthetic_sacramento_assessment_fixture",
+      "county": "Sacramento",
+      "source_name": "Synthetic Sacramento assessment fixture",
+      "data_class": "synthetic",
+      "approval_status": "synthetic_only",
+      "enabled": true,
+      "gates": {
+        "access": true,
+        "terms": true,
+        "privacy": true,
+        "data": true,
+        "operations": true
+      },
+      "allowed_fields": [
+        "source_apn",
+        "roll_year",
+        "situs_address_raw",
+        "assessed_land_value",
+        "assessed_improvement_value",
+        "total_assessed_value",
+        "exemption_value",
+        "tax_rate_area_code",
+        "assessor_land_use_code",
+        "recorder_book_page"
+      ],
+      "prohibited_fields": [
+        "owner",
+        "owner_name",
+        "name",
+        "care_of_name",
+        "mail1",
+        "mail2",
+        "mail_city",
+        "mail_state",
+        "mailing_address",
+        "mailing_zip",
+        "foreign_mail_address",
+        "phone",
+        "email"
+      ],
+      "hold_reasons": []
+    },
+    {
+      "id": "ca_sacramento_assessor_secured_roll",
+      "county": "Sacramento",
+      "source_name": "Electronic secured assessment roll",
+      "data_class": "real",
+      "approval_status": "access_obtained_compliance_hold",
+      "enabled": false,
+      "gates": {
+        "access": true,
+        "terms": false,
+        "privacy": false,
+        "data": false,
+        "operations": false
+      },
+      "allowed_fields": [],
+      "prohibited_fields": [
+        "owner",
+        "owner_name",
+        "name",
+        "care_of_name",
+        "mail1",
+        "mail2",
+        "mail_city",
+        "mail_state",
+        "mailing_address",
+        "mailing_zip",
+        "foreign_mail_address",
+        "phone",
+        "email"
+      ],
+      "hold_reasons": [
+        "County response pending for file layout, effective date, and update schedule",
+        "Storage, automated processing, retention, derived-use, and redistribution terms pending",
+        "Final field allowlist and parcel-status definitions pending",
+        "Real-data validation and operations plans not approved"
+      ]
+    },
+    {
+      "id": "ca_sacramento_gis_active_parcel_base",
+      "county": "Sacramento",
+      "source_name": "Active GIS Parcel Base",
+      "data_class": "real",
+      "approval_status": "access_request_pending",
+      "enabled": false,
+      "gates": {
+        "access": false,
+        "terms": false,
+        "privacy": false,
+        "data": false,
+        "operations": false
+      },
+      "allowed_fields": [],
+      "prohibited_fields": [
+        "OWNER",
+        "NAME",
+        "CARE_OF_NAME",
+        "MAIL1",
+        "MAIL2",
+        "MAIL_CITY",
+        "MAIL_STATE",
+        "MAILING_ZIP"
+      ],
+      "hold_reasons": [
+        "Field-level and automated-use approval pending",
+        "Delivery method, cadence, license, attribution, and rate limits pending",
+        "Final GIS field allowlist and parcel-status definitions pending"
+      ]
+    }
+  ]
+}
