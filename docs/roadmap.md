@@ -18,6 +18,8 @@ Choose a narrow use case and the smallest approved source set. Define privacy an
 
 **Progress:** A provisional Sacramento parcel-research charter, data contract, acceptance plan, and agency request package are drafted. Implementation remains blocked pending Assessor/GIS responses and a recorded source/field approval.
 
+**Parallel source work:** Recorder expansion is defined as a separate gate. The preferred path is the Assessor’s monthly two-year transfer file, followed by an official Recorder bulk product if one exists; portal scraping is excluded.
+
 **Exit gate:** written approval for named sources and fields, plus a reviewed pilot plan.
 
 ## Phase 4 — Backend ingestion pilot

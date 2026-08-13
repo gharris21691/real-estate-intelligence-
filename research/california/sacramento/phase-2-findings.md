@@ -25,6 +25,8 @@ Exclude owner/mailing fields from the GIS service, court-party resolution, compl
 2. GIS/Assessor: approved REST fields, automation permission, refresh cadence, license, and the owner/mailing fields exposed in the REST schema despite Parcel Viewer privacy restrictions.
 3. Recorder, Tax Collector, Court, and Code Enforcement: whether an official bulk, subscription, licensed export, or approved API exists and which uses are permitted.
 
+A ready-to-submit [Recorder index request](recorder-access-request.md) now covers the next source. The [Recorder expansion gate](../../../docs/pilot/recorder-expansion-gate.md) keeps it outside the base parcel pilot until access and parcel-linkage questions are resolved.
+
 ## Gate status
 
 - Research gate: **Passed for source discovery**.
