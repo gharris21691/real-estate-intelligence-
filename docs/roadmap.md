@@ -36,6 +36,8 @@ Add explainable indicators, review queues, and a limited interface. Validate whe
 
 Prioritize additional counties using source availability, opportunity, cost, policy constraints, and operational reuse. County rollout is gated independently.
 
+**Preparation:** An August 2026 market/source shortlist and a disabled automation registry now identify San Bernardino tax data, Riverside parcels, and Yolo parcels as the leading machine-readable candidates. This preparation does not move those counties into Phase 4; each source still requires independent terms, privacy, data, and operations approval.
+
 ## Explicit non-goals for Phases 1–2
 
 - Production scraping or ingestion.

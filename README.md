@@ -29,6 +29,8 @@ The current pilot proposal is documented in the [Sacramento pilot charter](docs/
 
 The first statewide expansion screen is documented in the [August 2026 California county shortlist](research/california/expansion-shortlist-2026-08.md). It recommends a research sequence only; every county remains subject to the same approval gates as Sacramento.
 
+The [California automated acquisition readiness plan](docs/pilot/california-automated-acquisition-plan.md) and [disabled source registry](research/california/automation-source-registry.json) prepare the highest-value machine-readable sources for a later approved pilot. They do not enable collection or add production ingestion code.
+
 ## Principles
 
 - Prefer authoritative public agencies over aggregators.
