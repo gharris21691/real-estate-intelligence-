@@ -72,8 +72,9 @@ A high technical score cannot override unresolved terms, privacy, or legal conce
 
 ## Decision record
 
-- Status: `In research`
+- Status: `Source inventory verified; pilot approval pending`
 - Decision owner: TBD
 - Approved use case: None yet
 - Approved fields: None yet
-- Next review date: TBD
+- Verification completed: 2026-08-12
+- Next review: After Assessor/GIS access, field, and use-term questions are answered

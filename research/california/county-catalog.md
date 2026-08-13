@@ -37,7 +37,7 @@ This catalog is the statewide research index. `Not started` means the county has
 | Placer | 061 | Next | Not started | — |
 | Plumas | 063 | Later | Not started | — |
 | Riverside | 065 | Next | Not started | — |
-| Sacramento | 067 | Pilot | In research | `sacramento/` |
+| Sacramento | 067 | Pilot | Source inventory verified | `sacramento/` |
 | San Benito | 069 | Later | Not started | — |
 | San Bernardino | 071 | Next | Not started | — |
 | San Diego | 073 | Next | Not started | — |

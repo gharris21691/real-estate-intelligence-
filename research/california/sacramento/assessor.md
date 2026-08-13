@@ -1,24 +1,48 @@
 # Assessor
 
-- Status: `Not started`
-- Candidate record families: parcel characteristics, assessed values, situs, ownership display, and assessment history.
-- Key boundary: public lookup fields may differ from bulk secured-roll products and ownership restrictions.
+- Research status: `Verified`
+- Pilot status: `Candidate — agency-delivered roll preferred`
+- Verified: 2026-08-12
+- Owning agency: Sacramento County Assessor
 
-## Research questions
+## Official sources
 
-- What is the authoritative APN format, including punctuation and leading zeros?
-- Which secured/unsecured roll fields and historical years are available?
-- Are ownership names, mailing addresses, situs addresses, and property characteristics exposed or restricted?
-- Are bulk files, reports, GIS layers, APIs, or licensed products available, and at what cost?
-- When are annual roll values published, and how are corrections or supplemental assessments represented?
-- What use, redistribution, and privacy restrictions attach to each access channel?
+- [Access to Public Records](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/assessor-records.html)
+- [Assessor Parcel Viewer](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/assessor-parcel-viewer.html)
+- [Assessor fee schedule](https://assessor.saccounty.gov/us/en/fee-schedule.html)
+- [Parcel Viewer disclaimer](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/data-disclaimer-and-instructions-parcel-viewer.html)
+- [Public Records Act information](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/pra-infosheet.html)
+
+## Verified access profile
+
+| Field | Finding |
+| --- | --- |
+| Public scope | Secured/unsecured rolls, APN, secured owner name, property/mailing addresses, assessed and exemption values, tax-rate area, zoning and land-use codes, Recorder book/page, parcel maps, and property characteristics are listed as public information. |
+| Online view | Parcel Viewer provides free assessed values and limited characteristics. Owner information is not displayed online because of privacy concerns. |
+| Electronic delivery | Electronic secured and unsecured assessment rolls are available at no charge by emailing `assessor@saccounty.gov`; NextRequest is another official request route. |
+| Transfer data | A no-charge two-year Change in Ownership transfer list is updated monthly and contained about 124,896 parcels when the fee schedule was published. |
+| Identifiers | APN is the primary parcel identifier; Recorder book/page and tax-rate-area code are also listed public fields. |
+| Parcel Viewer cadence | Values update in early July and mid-September. Roll corrections after September 15 are not reflected in Parcel Viewer. |
+| Cost | Electronic secured/unsecured rolls and the transfer list are listed at no charge. |
+| Confidential scope | Examples include change-in-ownership statements, preliminary change-of-ownership reports, appraisal records, most property building records, Assessor-held permit information, and market comparable data. |
+| Fitness | Data is compiled for assessment purposes and provided as-is. Parcel lines may not match legal descriptions; Assessor land-use codes are not zoning. |
+
+## Risks and limitations
+
+- Parcel Viewer is a presentation layer with correction and privacy limits; the electronic roll is the stronger input.
+- Permitting agencies, not the Assessor, are authoritative for permits and plans.
+- APNs must remain strings and be scoped to Sacramento County.
+- Layout, delivery format, roll date, corrections, retention, license, and redistribution remain unverified.
 
 ## Evidence log
 
-| Checked | Official page/document | URL | Claim supported | Notes |
-| --- | --- | --- | --- | --- |
-| | | | | |
+| Checked | Official page/document | Claim supported |
+| --- | --- | --- |
+| 2026-08-12 | [Assessor Records](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/assessor-records.html) | Public fields, owner-data restriction, confidential fields, and request access |
+| 2026-08-12 | [Parcel Viewer](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/assessor-parcel-viewer.html) | Update schedule and land-use/zoning distinction |
+| 2026-08-12 | [Fee Schedule](https://assessor.saccounty.gov/us/en/fee-schedule.html) | Free rolls, monthly transfer file, ordering route, and disclaimer |
+| 2026-08-12 | [Parcel Disclaimer](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/data-disclaimer-and-instructions-parcel-viewer.html) | As-is status and parcel-boundary limitation |
 
-## Recommendation
+## Recommendation and next action
 
-Pending research. Do not automate.
+Treat the electronic secured roll as a leading pilot candidate. Request a sample, data dictionary, delivery format, update/correction schedule, and written use terms. Evaluate the transfer list separately because it is an event dataset, not a replacement for the roll.
