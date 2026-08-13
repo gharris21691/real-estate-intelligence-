@@ -115,14 +115,11 @@ def run_synthetic_pipeline(
     review = sum(result.status == "review" for result in results)
     rejected = sum(result.status == "rejected" for result in results)
     timestamp = (generated_at or datetime.now(UTC)).astimezone(UTC)
-    canonical_input = json.dumps(
-        payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True
-    ).encode("utf-8")
     return QualityReport(
         schema_version=1,
         transformation_version="sacramento-synthetic-v1",
         fixture_notice=SYNTHETIC_NOTICE,
-        input_sha256=hashlib.sha256(canonical_input).hexdigest(),
+        input_sha256=fingerprint_payload(payload),
         generated_at=timestamp.isoformat().replace("+00:00", "Z"),
         input_count=len(results),
         accepted_count=accepted,
@@ -132,3 +129,10 @@ def run_synthetic_pipeline(
         issue_counts=dict(sorted(issue_counts.items())),
         records=tuple(results),
     )
+
+
+def fingerprint_payload(payload: Mapping[str, object]) -> str:
+    canonical_input = json.dumps(
+        payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True
+    ).encode("utf-8")
+    return hashlib.sha256(canonical_input).hexdigest()

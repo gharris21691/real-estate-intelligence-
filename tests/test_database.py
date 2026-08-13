@@ -1,4 +1,5 @@
 from pathlib import Path
+from contextlib import closing
 import sqlite3
 import tempfile
 import unittest
@@ -12,7 +13,7 @@ class DatabaseTests(unittest.TestCase):
             database = Path(directory) / "metadata.sqlite"
             initialize_database(database)
             initialize_database(database)
-            with sqlite3.connect(database) as connection:
+            with closing(sqlite3.connect(database)) as connection:
                 tables = {
                     row[0]
                     for row in connection.execute(

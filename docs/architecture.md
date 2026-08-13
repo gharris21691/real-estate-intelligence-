@@ -37,6 +37,7 @@ Every normalized fact must retain the source, retrieval time, source record iden
 - Privacy filtering rejects prohibited fields before a record can enter the provisional canonical model.
 - Machine-readable source policies require access, terms, privacy, data, and operations gates; real sources must also be explicitly marked `approved_for_pilot` and enabled.
 - Tests and fixtures are synthetic and do not require the external drive.
+- Approved synthetic runs persist source definitions, artifact fingerprints, normalized observations, reconciliation counts, and non-sensitive issue codes to an ignored local SQLite database.
 - There is no downloader, scraper, scheduled job, live endpoint query, or real-roll parser.
 
 ## Non-functional requirements before a pilot

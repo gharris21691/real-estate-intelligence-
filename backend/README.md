@@ -57,3 +57,15 @@ PYTHONPATH=backend python3 -m rei.cli source-status
 ```
 
 The policy file is `config/source-policies.json`. Only the synthetic fixture is executable. The real Sacramento secured roll and GIS source have empty allowlists and remain disabled until every named approval gate is complete and their status is explicitly changed to `approved_for_pilot`.
+
+Persist an auditable synthetic run to the ignored local SQLite database:
+
+```bash
+export REI_DATA_ROOT="/Volumes/GSTUDIOT7/Realestate_Projects/CA_Distressed_AI/real-estate-intelligence"
+PYTHONPATH=backend python3 -m rei.cli init-db
+PYTHONPATH=backend python3 -m rei.cli run-synthetic \
+  data/fixtures/sacramento_assessment_synthetic.json
+PYTHONPATH=backend python3 -m rei.cli audit-summary
+```
+
+The run stores its policy-approved source definition, fixture fingerprint, counts, synthetic parcel observations, and non-sensitive issue codes. The database lives under ignored `data/local/` by default. Repeating a run creates a new audit event while reusing the same immutable artifact fingerprint.

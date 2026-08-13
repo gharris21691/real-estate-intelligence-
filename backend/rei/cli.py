@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import sys
 
+from .audit import audit_summary, persist_synthetic_run
 from .config import ConfigurationError, Settings
 from .database import initialize_database
 from .manifest import build_manifest
@@ -47,6 +48,17 @@ def parser() -> argparse.ArgumentParser:
         "--policy-file", type=Path, default=Path("config/source-policies.json")
     )
     status.set_defaults(handler=_source_status)
+
+    run = commands.add_parser(
+        "run-synthetic", help="validate and persist an approved synthetic fixture"
+    )
+    run.add_argument("path", type=Path)
+    run.add_argument("--policy-file", type=Path, default=Path("config/source-policies.json"))
+    run.set_defaults(handler=_run_synthetic)
+
+    audit = commands.add_parser("audit-summary", help="summarize local pilot run history")
+    audit.add_argument("--limit", type=int, default=10)
+    audit.set_defaults(handler=_audit_summary)
     return root
 
 
@@ -124,6 +136,54 @@ def _source_status(args: argparse.Namespace) -> int:
             sort_keys=True,
         )
     )
+    return 0
+
+
+def _run_synthetic(args: argparse.Namespace) -> int:
+    settings = Settings.from_environment()
+    policies = load_source_policies(args.policy_file.expanduser().resolve(strict=True))
+    policy = policies.get("synthetic_sacramento_assessment_fixture")
+    if policy is None:
+        raise PolicyError("Synthetic Sacramento source policy is missing")
+    require_source_approved(policy)
+
+    repository_root = Path.cwd().resolve()
+    fixture_root = repository_root / "data/fixtures"
+    fixture = args.path.expanduser().resolve(strict=True)
+    try:
+        fixture.relative_to(fixture_root)
+    except ValueError as error:
+        raise ConfigurationError("Synthetic fixtures must be inside data/fixtures") from error
+    payload = load_synthetic_fixture(fixture)
+    report = run_synthetic_pipeline(payload)
+    run_id = persist_synthetic_run(
+        settings.database_path, fixture, payload, report, policy
+    )
+    print(
+        json.dumps(
+            {
+                "run_id": run_id,
+                "database_path": str(settings.database_path),
+                "quality": {
+                    "input_count": report.input_count,
+                    "accepted_count": report.accepted_count,
+                    "review_count": report.review_count,
+                    "rejected_count": report.rejected_count,
+                    "reconciliation_passed": report.reconciliation_passed,
+                },
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0 if report.rejected_count == 0 else 1
+
+
+def _audit_summary(args: argparse.Namespace) -> int:
+    if args.limit < 1 or args.limit > 100:
+        raise ValueError("Audit summary limit must be from 1 through 100")
+    settings = Settings.from_environment()
+    print(json.dumps(audit_summary(settings.database_path, limit=args.limit), indent=2, sort_keys=True))
     return 0
 
 
