@@ -36,7 +36,7 @@ Gabriel Harris
 
 ## Response record
 
-- Sent: —
+- Sent: 2026-08-13 through the ATC contact form
 - Response received: —
 - Agency contact/team: —
 - Automation permitted: Pending
@@ -46,6 +46,6 @@ Gabriel Harris
 - Redistribution rule: Pending
 - Rate/attribution requirements: Pending
 - Account Number/APN mapping: Pending
-- Notes: —
+- Notes: Submitted under Technical Support because the form did not list an Open Data category. No confirmation number recorded yet.
 
 Verified 2026-08-13.

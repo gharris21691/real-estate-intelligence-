@@ -8,7 +8,7 @@ This is the combined access tracker for Sacramento and the first California expa
 | --- | --- | --- | --- | --- | --- |
 | 1 | Sacramento secured assessment roll | `assessor@saccounty.gov`; [detailed checklist](../sacramento/agency-requests.md) | **Access obtained**; land-use references received; documentation/terms follow-up sent 2026-08-13 | Await the roll documentation, use terms, and Change in Ownership response | Access and land-use-reference items complete; other gates pending |
 | 2 | Sacramento Active GIS Parcel Base | `ASR-Mapping@saccounty.gov`; [detailed checklist](../sacramento/agency-requests.md) | Request sent; response pending | Obtain field-level and automated-use approval | Pending |
-| 3 | San Bernardino ATC tax open data | [ATC Contact Us](https://www.sbcountyatc.gov/contact-us); (909) 387-8308 | [Ready to submit](san-bernardino-atc.md) | Submit the prepared request | Pending |
+| 3 | San Bernardino ATC tax open data | [ATC Contact Us](https://www.sbcountyatc.gov/contact-us); (909) 387-8308 | **Submitted** through the contact form on 2026-08-13 | Await ATC response; retain any case number or reply | Pending |
 | 4 | Riverside Parcel Basic | [County Public Records Act Portal](https://riversidecountyca.nextrequest.com/requests/new), addressed to RCIT/GIS | [Ready to submit](riverside-gis.md) | Submit the prepared request | Pending |
 | 5 | Yolo public parcels | `GIS@yolocounty.org`; fallback: `ITS.ServiceDesk@yolocounty.gov` | [Ready to send](yolo-gis.md) | Send the prepared request | Pending |
 | 6 | Kern Assessor GIS data | Mark Larner, Mapping Section, `larner@kerncounty.com`, (661) 868-3378 | [Ready to send](kern-assessor-gis.md) | Send the prepared request | Pending |
