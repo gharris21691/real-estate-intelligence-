@@ -146,10 +146,10 @@ Checked 2026-08-13 without downloading record rows:
 
 ## Immediate next actions
 
-1. Ask San Bernardino ATC to confirm that automated scheduled downloads, internal commercial analysis, retention, and derived indicators are permitted despite the catalog's blank license field.
-2. Ask Riverside GIS to confirm unattended REST queries of Parcel Basic, acceptable frequency, retention, and internal commercial use.
-3. Ask Yolo GIS the same questions for the parcel FeatureServer while affirming that the Recorder portal will not be automated.
-4. Ask Kern for an approved API token/service or use the paid delivered dataset, and obtain written clarification before unattended commercial acquisition.
+1. Submit the prepared [San Bernardino ATC request](../../research/california/access-requests/san-bernardino-atc.md) to confirm that automated scheduled downloads, internal commercial analysis, retention, and derived indicators are permitted despite the catalog's blank license field.
+2. Submit the prepared [Riverside GIS request](../../research/california/access-requests/riverside-gis.md) to confirm unattended REST queries of Parcel Basic, acceptable frequency, retention, and internal commercial use.
+3. Send the prepared [Yolo GIS request](../../research/california/access-requests/yolo-gis.md) for the parcel FeatureServer while affirming that the Recorder portal will not be automated.
+4. Send the prepared [Kern Assessor GIS request](../../research/california/access-requests/kern-assessor-gis.md) for an approved API token/service or the paid delivered dataset and written clarification before unattended commercial acquisition.
 5. Request current Stanislaus and Fresno subscription/order terms only after Wave 1 feasibility is proven.
 
 No production ingestion code or source data was added by this plan.
