@@ -30,7 +30,7 @@ Gabriel Harris
 
 ## Response record
 
-- Sent: —
+- Sent: 2026-08-13 through the Riverside County Public Records Act Portal
 - County request number: —
 - Response received: —
 - Agency contact/team: —
@@ -41,6 +41,6 @@ Gabriel Harris
 - Derived tables permitted: Pending
 - Redistribution/attribution rule: Pending
 - Stable endpoint/change notice: Pending
-- Notes: —
+- Notes: The portal did not list Information Technology, RCIT, or GIS. The request asked for routing to the team responsible for the Assessor/RCIT OpenData ArcGIS service. County request number not yet recorded.
 
 Verified 2026-08-13.
