@@ -16,6 +16,8 @@ Research Recorder, Assessor, Tax Collector, Courts, GIS/Open Data, and Code Enfo
 
 Choose a narrow use case and the smallest approved source set. Define privacy and compliance controls, canonical fields, service-level expectations, test fixtures, and acceptance metrics.
 
+**Progress:** A provisional Sacramento parcel-research charter, data contract, acceptance plan, and agency request package are drafted. Implementation remains blocked pending Assessor/GIS responses and a recorded source/field approval.
+
 **Exit gate:** written approval for named sources and fields, plus a reviewed pilot plan.
 
 ## Phase 4 — Backend ingestion pilot

@@ -34,3 +34,5 @@ Exclude owner/mailing fields from the GIS service, court-party resolution, compl
 - Pilot gate: **Not approved**.
 
 No ingestion code should be implemented until the pilot gate records approved sources, fields, frequency, retention, and use case.
+
+The next-stage design is recorded in the [pilot charter](../../../docs/pilot/sacramento-pilot-charter.md), [data contract](../../../docs/pilot/sacramento-data-contract.md), and [acceptance plan](../../../docs/pilot/sacramento-acceptance-plan.md). Ready-to-send questions are in the [agency request package](agency-requests.md).

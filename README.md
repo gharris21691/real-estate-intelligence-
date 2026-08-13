@@ -25,6 +25,8 @@ The repository is in **Phase 1: source discovery and specification**. It contain
 
 See [the roadmap](docs/roadmap.md) for phase gates and [the Sacramento research specification](research/california/sacramento/source-research-spec.md) for the required evidence.
 
+The current pilot proposal is documented in the [Sacramento pilot charter](docs/pilot/sacramento-pilot-charter.md). It remains provisional until the County confirms access and field-level terms.
+
 ## Principles
 
 - Prefer authoritative public agencies over aggregators.
