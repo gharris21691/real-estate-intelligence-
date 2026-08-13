@@ -8,14 +8,15 @@ These drafts track the project owner's agency requests. Access to the Assessor s
 | --- | --- | --- | --- |
 | Assessor request submitted | Complete | 2026-08-13 | Project owner confirmed submission. |
 | Electronic secured assessment roll access | Complete | 2026-08-13 | Project owner confirmed access. Do not store the roll in Git. |
-| File layout or data dictionary | Pending confirmation | 2026-08-13 | Record the County-provided documentation or request it separately. |
-| Roll effective date and file format | Pending confirmation | 2026-08-13 | Inspect only after an approved storage location is established. |
-| Update and correction schedule | Pending | 2026-08-13 | Written confirmation still needed. |
+| Assessor documentation and terms follow-up | Sent | 2026-08-13 | Follow-up sent to `assessor@saccounty.gov`; response pending. |
+| File layout or data dictionary | Requested; response pending | 2026-08-13 | Included in the follow-up request. |
+| Roll effective date and file format | Requested; response pending | 2026-08-13 | Included in the follow-up request. |
+| Update and correction schedule | Requested; response pending | 2026-08-13 | Included in the follow-up request. |
 | Land-use code definitions | Complete | 2026-08-13 | County-provided PDF and workbook received and reviewed; see [land-use code references](land-use-code-reference.md). Confirm they apply to the delivered roll. |
-| Parcel-status definitions | Pending | 2026-08-13 | Not covered by the land-use code files. |
-| Storage, retention, automation, and derived-use terms | Pending | 2026-08-13 | Access is not treated as permission for unattended processing. |
-| Redistribution terms | Pending | 2026-08-13 | Source records must not be redistributed meanwhile. |
-| Two-year Change in Ownership file | Pending | 2026-08-13 | Confirm whether separate access was granted or must be requested. |
+| Parcel-status definitions | Requested; response pending | 2026-08-13 | Not covered by the land-use code files; included in the follow-up. |
+| Storage, retention, automation, and derived-use terms | Requested; response pending | 2026-08-13 | Access is not treated as permission for unattended processing. |
+| Redistribution terms | Requested; response pending | 2026-08-13 | Source records must not be redistributed meanwhile. |
+| Two-year Change in Ownership file | Requested; response pending | 2026-08-13 | Requested in the Assessor follow-up; separate instructions or delivery pending. |
 | GIS automation/field approval | Pending | 2026-08-13 | Separate from Assessor roll access. |
 
 ## Assessor request
@@ -62,3 +63,4 @@ Gabriel Harris
 | --- | --- | --- | --- | --- |
 | 2026-08-13 | Sacramento County Assessor | Project owner confirmed access to the electronic secured assessment roll. The County's detailed response and terms have not yet been recorded. | Project owner confirmation; source data and credentials intentionally excluded from Git | Access gate satisfied; documentation, terms, privacy, and data-quality gates remain pending. |
 | 2026-08-13 | Sacramento County Assessor | Land-use operations-manual section and quick-reference workbook received and reviewed. | [Land-use code reference](land-use-code-reference.md); originals retained on external drive | Land-use definition item complete; applicability to the delivered roll and parcel-status definitions remain pending. |
+| 2026-08-13 | Sacramento County Assessor | Follow-up sent requesting the roll layout, effective date, format, update/correction schedule, field and status definitions, use terms, and the two-year Change in Ownership file. | Project owner confirmation | All remaining Assessor questions are now awaiting the County's response. |
