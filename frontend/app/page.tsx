@@ -1,33 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dashboardData from "@/data/control-room.json";
 
-const sources = [
-  {
-    code: "SAC-01",
-    name: "Secured assessment roll",
-    agency: "Sacramento County Assessor",
-    status: "COMPLIANCE HOLD",
-    state: "hold",
-    gates: 1,
-  },
-  {
-    code: "SAC-02",
-    name: "Active parcel base",
-    agency: "Sacramento County GIS",
-    status: "ACCESS PENDING",
-    state: "pending",
-    gates: 0,
-  },
-  {
-    code: "SYN-00",
-    name: "Synthetic assessment fixture",
-    agency: "Internal test environment",
-    status: "EXECUTABLE",
-    state: "live",
-    gates: 5,
-  },
-];
+type GateName = "access" | "terms" | "privacy" | "data" | "operations";
+type Source = (typeof dashboardData.sources)[number];
+
+const sources = dashboardData.sources;
+const latestRun = dashboardData.latest_run;
+const sourceCodes: Record<string, string> = {
+  ca_sacramento_assessor_secured_roll: "SAC-01",
+  ca_sacramento_gis_active_parcel_base: "SAC-02",
+  synthetic_sacramento_assessment_fixture: "SYN-00",
+};
+const sourceAgencies: Record<string, string> = {
+  ca_sacramento_assessor_secured_roll: "Sacramento County Assessor",
+  ca_sacramento_gis_active_parcel_base: "Sacramento County GIS",
+  synthetic_sacramento_assessment_fixture: "Internal test environment",
+};
 
 const gateLabels = ["ACCESS", "TERMS", "PRIVACY", "DATA", "OPS"];
 
@@ -77,11 +67,17 @@ function CoreOrb() {
   );
 }
 
-function GateTrack({ complete }: { complete: number }) {
+function sourceState(source: Source) {
+  if (source.executable) return { label: "EXECUTABLE", state: "live" };
+  if (source.approval_status.includes("hold")) return { label: "COMPLIANCE HOLD", state: "hold" };
+  return { label: "ACCESS PENDING", state: "pending" };
+}
+
+function GateTrack({ source }: { source: Source }) {
   return (
-    <div className="gate-track" aria-label={`${complete} of 5 approval gates complete`}>
-      {gateLabels.map((gate, index) => (
-        <span className={index < complete ? "gate gate--on" : "gate"} key={gate}>
+    <div className="gate-track" aria-label={`${Object.values(source.gates).filter(Boolean).length} of 5 approval gates complete`}>
+      {gateLabels.map((gate) => (
+        <span className={source.gates[gate.toLowerCase() as GateName] ? "gate gate--on" : "gate"} key={gate}>
           <i />
           {gate}
         </span>
@@ -92,6 +88,15 @@ function GateTrack({ complete }: { complete: number }) {
 
 export default function Home() {
   const [view, setView] = useState<"overview" | "sources">("overview");
+  const [selectedSource, setSelectedSource] = useState<Source | null>(null);
+  const [verified, setVerified] = useState(false);
+
+  const executableCount = sources.filter((source) => source.executable).length;
+
+  const verifySnapshot = () => {
+    setVerified(true);
+    window.setTimeout(() => setVerified(false), 3200);
+  };
 
   return (
     <main>
@@ -108,7 +113,7 @@ export default function Home() {
         </a>
         <nav aria-label="Primary navigation">
           <button className={view === "overview" ? "nav-active" : ""} onClick={() => setView("overview")}>Overview</button>
-          <button className={view === "sources" ? "nav-active" : ""} onClick={() => setView("sources")}>Sources</button>
+          <button className={view === "sources" ? "nav-active" : ""} onClick={() => { setView("sources"); document.querySelector("#sources")?.scrollIntoView(); }}>Sources</button>
           <a href="#audit">Audit</a>
         </nav>
         <div className="system-meta">
@@ -148,18 +153,18 @@ export default function Home() {
         <div className="section-index">02 / SYSTEM STATE</div>
         <article>
           <span className="metric-label">SOURCE POLICIES</span>
-          <strong>03</strong>
-          <small>1 executable / 2 held</small>
+          <strong>{String(sources.length).padStart(2, "0")}</strong>
+          <small>{executableCount} executable / {sources.length - executableCount} held</small>
         </article>
         <article>
           <span className="metric-label">LATEST RUN</span>
-          <strong>02</strong>
+          <strong>{String(latestRun.input_count).padStart(2, "0")}</strong>
           <small>observations accepted</small>
         </article>
         <article>
           <span className="metric-label">RECONCILIATION</span>
-          <strong>100<span>%</span></strong>
-          <small>zero unresolved issues</small>
+          <strong>{latestRun.reconciliation_passed ? "100" : "0"}<span>%</span></strong>
+          <small>{Object.keys(latestRun.issue_counts).length} unresolved issues</small>
         </article>
         <article className="metric-visual">
           <div className="signal-bars" aria-hidden="true">
@@ -184,16 +189,16 @@ export default function Home() {
 
         <div className="source-list">
           {sources.map((source, index) => (
-            <article className="source-row" key={source.code}>
+            <article className="source-row" key={source.id}>
               <span className="source-index">0{index + 1}</span>
               <div className="source-identity">
-                <span>{source.code}</span>
-                <h3>{source.name}</h3>
-                <p>{source.agency}</p>
+                <span>{sourceCodes[source.id]}</span>
+                <h3>{source.source_name}</h3>
+                <p>{sourceAgencies[source.id]}</p>
               </div>
-              <GateTrack complete={source.gates} />
-              <span className={`source-status source-status--${source.state}`}><i />{source.status}</span>
-              <button aria-label={`View ${source.name} details`}>↗</button>
+              <GateTrack source={source} />
+              <span className={`source-status source-status--${sourceState(source).state}`}><i />{sourceState(source).label}</span>
+              <button onClick={() => setSelectedSource(source)} aria-label={`View ${source.source_name} details`}>↗</button>
             </article>
           ))}
         </div>
@@ -211,17 +216,21 @@ export default function Home() {
             <span className="run-live"><i /> COMPLETE</span>
           </div>
           <div className="run-ring">
-            <div><strong>2</strong><span>ACCEPTED</span></div>
+            <div><strong>{latestRun.accepted_count}</strong><span>ACCEPTED</span></div>
           </div>
           <div className="run-stats">
-            <div><span>REVIEW</span><strong>0</strong></div>
-            <div><span>REJECTED</span><strong>0</strong></div>
-            <div><span>ISSUES</span><strong>0</strong></div>
+            <div><span>REVIEW</span><strong>{latestRun.review_count}</strong></div>
+            <div><span>REJECTED</span><strong>{latestRun.rejected_count}</strong></div>
+            <div><span>ISSUES</span><strong>{Object.keys(latestRun.issue_counts).length}</strong></div>
           </div>
           <div className="fingerprint">
             <span>INPUT FINGERPRINT</span>
-            <code>5824810d…bea822a1</code>
+            <code>{latestRun.input_sha256.slice(0, 8)}…{latestRun.input_sha256.slice(-8)}</code>
           </div>
+          <button className={`verify-action ${verified ? "verify-action--done" : ""}`} onClick={verifySnapshot}>
+            <span>{verified ? "SNAPSHOT VERIFIED" : "VERIFY SNAPSHOT"}</span>
+            <i>{verified ? "✓" : "↗"}</i>
+          </button>
         </div>
       </section>
 
@@ -233,6 +242,40 @@ export default function Home() {
         <p>Synthetic interface / no live county records</p>
         <span>BUILD 00.01.00</span>
       </footer>
+
+      {selectedSource && (
+        <div className="source-modal" role="dialog" aria-modal="true" aria-labelledby="source-detail-title">
+          <section className="source-drawer">
+            <div className="drawer-head">
+              <span>{sourceCodes[selectedSource.id]} / SOURCE DETAIL</span>
+              <button onClick={() => setSelectedSource(null)} aria-label="Close source details">CLOSE ×</button>
+            </div>
+            <div className="drawer-orb"><i /></div>
+            <p className="drawer-kicker">{selectedSource.county.toUpperCase()} / {selectedSource.data_class.toUpperCase()}</p>
+            <h2 id="source-detail-title">{selectedSource.source_name}</h2>
+            <div className="drawer-status">
+              <span className={`source-status source-status--${sourceState(selectedSource).state}`}><i />{sourceState(selectedSource).label}</span>
+              <span>{selectedSource.allowed_field_count} ALLOWED FIELDS</span>
+              <span>{selectedSource.prohibited_field_count} PROTECTED FIELDS</span>
+            </div>
+            <div className="drawer-gates">
+              {gateLabels.map((label) => {
+                const active = selectedSource.gates[label.toLowerCase() as GateName];
+                return <div className={active ? "drawer-gate drawer-gate--on" : "drawer-gate"} key={label}><i />{label}<span>{active ? "CLEARED" : "PENDING"}</span></div>;
+              })}
+            </div>
+            <div className="drawer-blockers">
+              <span>DECISION LOG</span>
+              {selectedSource.hold_reasons.length ? (
+                <ol>{selectedSource.hold_reasons.map((reason) => <li key={reason}>{reason}</li>)}</ol>
+              ) : (
+                <p>All synthetic execution gates are cleared. This does not authorize live County data.</p>
+              )}
+            </div>
+            <p className="drawer-footnote">Repository snapshot / {new Date(dashboardData.generated_at).toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PST</p>
+          </section>
+        </div>
+      )}
     </main>
   );
 }
