@@ -20,7 +20,7 @@ The initial user is an internal property researcher. Given an APN or situs addre
 
 | Source | Proposed use | Approval state |
 | --- | --- | --- |
-| Assessor secured assessment roll | Parcel identity and approved assessment attributes | Candidate; sample, layout, and terms requested |
+| Assessor secured assessment roll | Parcel identity and approved assessment attributes | Access obtained; layout, fields, and use terms pending |
 | GIS Active Parcel Base | Geometry and minimal parcel identifiers/status | Candidate; field-level and automation approval requested |
 
 Recorder, Tax Collector, Superior Court, and Code Enforcement are excluded from the first pilot. Their public portals remain manual research tools until an official bulk or approved programmatic route is confirmed.
@@ -46,7 +46,7 @@ Recorder, Tax Collector, Superior Court, and Code Enforcement are excluded from 
 
 ## Dependencies
 
-Pilot implementation cannot begin until the Assessor and GIS questions in the [agency request package](../../research/california/sacramento/agency-requests.md) are answered. A public endpoint alone is not approval.
+Assessor roll access is now available, but pilot implementation cannot begin until the remaining Assessor and GIS questions in the [agency request package](../../research/california/sacramento/agency-requests.md) are answered. Access alone is not approval for automated processing.
 
 ## Exit decision
 

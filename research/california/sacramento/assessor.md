@@ -1,7 +1,7 @@
 # Assessor
 
 - Research status: `Verified`
-- Pilot status: `Candidate — agency-delivered roll preferred`
+- Pilot status: `Access obtained — documentation and use terms pending`
 - Verified: 2026-08-12
 - Owning agency: Sacramento County Assessor
 
@@ -19,7 +19,7 @@
 | --- | --- |
 | Public scope | Secured/unsecured rolls, APN, secured owner name, property/mailing addresses, assessed and exemption values, tax-rate area, zoning and land-use codes, Recorder book/page, parcel maps, and property characteristics are listed as public information. |
 | Online view | Parcel Viewer provides free assessed values and limited characteristics. Owner information is not displayed online because of privacy concerns. |
-| Electronic delivery | Electronic secured and unsecured assessment rolls are available at no charge by emailing `assessor@saccounty.gov`; NextRequest is another official request route. |
+| Electronic delivery | Electronic secured and unsecured assessment rolls are available at no charge by emailing `assessor@saccounty.gov`; NextRequest is another official request route. The project owner confirmed access to the secured roll on 2026-08-13. |
 | Transfer data | A no-charge two-year Change in Ownership transfer list is updated monthly and contained about 124,896 parcels when the fee schedule was published. |
 | Identifiers | APN is the primary parcel identifier; Recorder book/page and tax-rate-area code are also listed public fields. |
 | Parcel Viewer cadence | Values update in early July and mid-September. Roll corrections after September 15 are not reflected in Parcel Viewer. |
@@ -32,7 +32,7 @@
 - Parcel Viewer is a presentation layer with correction and privacy limits; the electronic roll is the stronger input.
 - Permitting agencies, not the Assessor, are authoritative for permits and plans.
 - APNs must remain strings and be scoped to Sacramento County.
-- Layout, delivery format, roll date, corrections, retention, license, and redistribution remain unverified.
+- Access is confirmed, but layout, delivery format, roll date, corrections, retention, license, automated processing, derived use, and redistribution remain unverified.
 
 ## Evidence log
 
@@ -45,4 +45,4 @@
 
 ## Recommendation and next action
 
-Treat the electronic secured roll as a leading pilot candidate. Request a sample, data dictionary, delivery format, update/correction schedule, and written use terms. Evaluate the transfer list separately because it is an event dataset, not a replacement for the roll.
+Treat the electronic secured roll as the leading pilot candidate. Record the delivered file's layout, effective date, format, update/correction schedule, and written use terms before processing it. Evaluate the transfer list separately because it is an event dataset, not a replacement for the roll.

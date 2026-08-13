@@ -1,6 +1,21 @@
 # Assessor and GIS request package
 
-These drafts are ready for the project owner to send. They do not authorize collection or commit the County to any use.
+These drafts track the project owner's agency requests. Access to the Assessor secured assessment roll has been obtained, but access alone does not authorize automated processing or resolve the remaining use terms.
+
+## Access checklist
+
+| Item | Status | Updated | Notes |
+| --- | --- | --- | --- |
+| Assessor request submitted | Complete | 2026-08-13 | Project owner confirmed submission. |
+| Electronic secured assessment roll access | Complete | 2026-08-13 | Project owner confirmed access. Do not store the roll in Git. |
+| File layout or data dictionary | Pending confirmation | 2026-08-13 | Record the County-provided documentation or request it separately. |
+| Roll effective date and file format | Pending confirmation | 2026-08-13 | Inspect only after an approved storage location is established. |
+| Update and correction schedule | Pending | 2026-08-13 | Written confirmation still needed. |
+| Parcel-status and land-use code definitions | Pending | 2026-08-13 | Written definitions still needed. |
+| Storage, retention, automation, and derived-use terms | Pending | 2026-08-13 | Access is not treated as permission for unattended processing. |
+| Redistribution terms | Pending | 2026-08-13 | Source records must not be redistributed meanwhile. |
+| Two-year Change in Ownership file | Pending | 2026-08-13 | Confirm whether separate access was granted or must be requested. |
+| GIS automation/field approval | Pending | 2026-08-13 | Separate from Assessor roll access. |
 
 ## Assessor request
 
@@ -44,4 +59,4 @@ Gabriel Harris
 
 | Date | Agency/contact | Response summary | Evidence location | Decision impact |
 | --- | --- | --- | --- | --- |
-| | | | | |
+| 2026-08-13 | Sacramento County Assessor | Project owner confirmed access to the electronic secured assessment roll. The County's detailed response and terms have not yet been recorded. | Project owner confirmation; source data and credentials intentionally excluded from Git | Access gate satisfied; documentation, terms, privacy, and data-quality gates remain pending. |
