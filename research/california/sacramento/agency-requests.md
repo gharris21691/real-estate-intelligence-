@@ -11,7 +11,8 @@ These drafts track the project owner's agency requests. Access to the Assessor s
 | File layout or data dictionary | Pending confirmation | 2026-08-13 | Record the County-provided documentation or request it separately. |
 | Roll effective date and file format | Pending confirmation | 2026-08-13 | Inspect only after an approved storage location is established. |
 | Update and correction schedule | Pending | 2026-08-13 | Written confirmation still needed. |
-| Parcel-status and land-use code definitions | Pending | 2026-08-13 | Written definitions still needed. |
+| Land-use code definitions | Complete | 2026-08-13 | County-provided PDF and workbook received and reviewed; see [land-use code references](land-use-code-reference.md). Confirm they apply to the delivered roll. |
+| Parcel-status definitions | Pending | 2026-08-13 | Not covered by the land-use code files. |
 | Storage, retention, automation, and derived-use terms | Pending | 2026-08-13 | Access is not treated as permission for unattended processing. |
 | Redistribution terms | Pending | 2026-08-13 | Source records must not be redistributed meanwhile. |
 | Two-year Change in Ownership file | Pending | 2026-08-13 | Confirm whether separate access was granted or must be requested. |
@@ -60,3 +61,4 @@ Gabriel Harris
 | Date | Agency/contact | Response summary | Evidence location | Decision impact |
 | --- | --- | --- | --- | --- |
 | 2026-08-13 | Sacramento County Assessor | Project owner confirmed access to the electronic secured assessment roll. The County's detailed response and terms have not yet been recorded. | Project owner confirmation; source data and credentials intentionally excluded from Git | Access gate satisfied; documentation, terms, privacy, and data-quality gates remain pending. |
+| 2026-08-13 | Sacramento County Assessor | Land-use operations-manual section and quick-reference workbook received and reviewed. | [Land-use code reference](land-use-code-reference.md); originals retained on external drive | Land-use definition item complete; applicability to the delivered roll and parcel-status definitions remain pending. |

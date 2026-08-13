@@ -32,7 +32,8 @@
 - Parcel Viewer is a presentation layer with correction and privacy limits; the electronic roll is the stronger input.
 - Permitting agencies, not the Assessor, are authoritative for permits and plans.
 - APNs must remain strings and be scoped to Sacramento County.
-- Access is confirmed, but layout, delivery format, roll date, corrections, retention, license, automated processing, derived use, and redistribution remain unverified.
+- Access is confirmed, and the April 2023 land-use code manual plus quick-reference workbook have been received. Their applicability to the delivered roll still needs confirmation.
+- Layout, delivery format, roll date, corrections, parcel-status definitions, retention, license, automated processing, derived use, and redistribution remain unverified.
 
 ## Evidence log
 
@@ -42,7 +43,8 @@
 | 2026-08-12 | [Parcel Viewer](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/assessor-parcel-viewer.html) | Update schedule and land-use/zoning distinction |
 | 2026-08-12 | [Fee Schedule](https://assessor.saccounty.gov/us/en/fee-schedule.html) | Free rolls, monthly transfer file, ordering route, and disclaimer |
 | 2026-08-12 | [Parcel Disclaimer](https://assessor.saccounty.gov/us/en/maps-property-data-and-records/data-disclaimer-and-instructions-parcel-viewer.html) | As-is status and parcel-boundary limitation |
+| 2026-08-13 | [County-provided land-use references](land-use-code-reference.md) | Six-position land-use code structure, category definitions, examples, and quick-reference patterns |
 
 ## Recommendation and next action
 
-Treat the electronic secured roll as the leading pilot candidate. Record the delivered file's layout, effective date, format, update/correction schedule, and written use terms before processing it. Evaluate the transfer list separately because it is an event dataset, not a replacement for the roll.
+Treat the electronic secured roll as the leading pilot candidate. Record the delivered file's layout, effective date, format, update/correction schedule, parcel-status definitions, and written use terms before processing it. Confirm which roll field uses the received land-use codes. Evaluate the transfer list separately because it is an event dataset, not a replacement for the roll.
