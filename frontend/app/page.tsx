@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import dashboardData from "@/data/control-room.json";
 import landUseReference from "@/data/sacramento-land-use-reference.json";
+import securedRollBatch from "@/data/sacramento-secured-roll-batch.json";
 
 type GateName = "access" | "terms" | "privacy" | "data" | "operations";
 type Source = (typeof dashboardData.sources)[number];
@@ -182,6 +183,19 @@ export default function Home() {
         </article>
       </section>
 
+      <section className="intake-banner" aria-label="Secured roll batch intake">
+        <div className="intake-signal"><i /><i /><i /></div>
+        <div className="intake-title">
+          <span>NEW BATCH DETECTED / SAC-01</span>
+          <h2>2026 secured roll</h2>
+          <p>Metadata connected. Parcel rows remain quarantined.</p>
+        </div>
+        <div className="intake-stat"><span>RECORDS</span><strong>{securedRollBatch.workbook.record_count.toLocaleString("en-US")}</strong></div>
+        <div className="intake-stat"><span>FIELDS</span><strong>{securedRollBatch.workbook.field_count}</strong></div>
+        <div className="intake-stat intake-stat--alert"><span>PROHIBITED</span><strong>{securedRollBatch.field_review.prohibited_count}</strong></div>
+        <button onClick={() => setSelectedSource(sources.find((source) => source.id === "ca_sacramento_assessor_secured_roll") ?? null)}>INSPECT INTAKE ↗</button>
+      </section>
+
       <section className="sources-section" id="sources">
         <div className="sources-heading">
           <div>
@@ -324,6 +338,19 @@ export default function Home() {
                 <p>All synthetic execution gates are cleared. This does not authorize live County data.</p>
               )}
             </div>
+            {selectedSource.id === "ca_sacramento_assessor_secured_roll" && (
+              <div className="batch-detail">
+                <div className="batch-detail-head"><span>CONNECTED BATCH / {securedRollBatch.roll_year}</span><strong>QUARANTINED</strong></div>
+                <div className="batch-detail-grid">
+                  <div><span>RECORDS</span><strong>{securedRollBatch.workbook.record_count.toLocaleString("en-US")}</strong></div>
+                  <div><span>FIELDS</span><strong>{securedRollBatch.workbook.field_count}</strong></div>
+                  <div><span>CANDIDATE</span><strong>{securedRollBatch.field_review.provisional_candidate_count}</strong></div>
+                  <div><span>PROHIBITED</span><strong>{securedRollBatch.field_review.prohibited_count}</strong></div>
+                </div>
+                <div className="batch-fingerprint"><span>ARCHIVE FINGERPRINT</span><code>{securedRollBatch.archive.sha256.slice(0, 10)}…{securedRollBatch.archive.sha256.slice(-10)}</code></div>
+                <p>{securedRollBatch.field_review.schema_discrepancies[0]}</p>
+              </div>
+            )}
             <p className="drawer-footnote">Repository snapshot / {new Date(dashboardData.generated_at).toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PST</p>
           </section>
         </div>

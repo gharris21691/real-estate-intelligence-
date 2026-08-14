@@ -37,6 +37,9 @@ test("server-renders the AXIOM command surface", async () => {
   assert.match(html, /CONNECTED REFERENCE BATCH/);
   assert.match(html, /Residential Dwelling Unit/);
   assert.match(html, /NO PARCEL, OWNER, OR MAILING RECORDS EXPOSED/);
+  assert.match(html, /NEW BATCH DETECTED/);
+  assert.match(html, /508,557/);
+  assert.match(html, /Parcel rows remain quarantined/);
   assert.match(html, /LATEST SYNTHETIC RUN/);
   assert.match(html, /axiom-social-card\.png/);
   assert.doesNotMatch(html, /Your site is taking shape|react-loading-skeleton/);

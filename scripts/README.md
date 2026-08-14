@@ -11,4 +11,9 @@ Excel quick reference on the external data drive. It publishes only filenames,
 checksums, structural metadata, and general code families to the frontend; the
 source documents remain on the external drive.
 
+`index_secured_roll_batch.py` performs a metadata-only intake of a Sacramento
+secured-roll ZIP. It fingerprints the archive, streams the workbook header and
+dimensions, classifies prohibited fields, and records schema discrepancies.
+It never exports parcel rows and does not enable real-data processing.
+
 Reserved for future operational tooling. Source-research work must not add acquisition scripts.

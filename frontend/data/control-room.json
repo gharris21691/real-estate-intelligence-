@@ -1,6 +1,6 @@
 {
   "environment": "synthetic",
-  "generated_at": "2026-08-13T22:19:38.777464Z",
+  "generated_at": "2026-08-14T00:31:32.868036Z",
   "latest_run": {
     "accepted_count": 2,
     "input_count": 2,
@@ -41,7 +41,8 @@
         "terms": false
       },
       "hold_reasons": [
-        "County response pending for file layout, effective date, and update schedule",
+        "Resolve schema mismatch: layout lists SITUS_STREET_SUB while workbook supplies SITUS_CITY",
+        "Confirm roll effective date and correction schedule",
         "Storage, automated processing, retention, derived-use, and redistribution terms pending",
         "Final field allowlist and parcel-status definitions pending",
         "Real-data validation and operations plans not approved"

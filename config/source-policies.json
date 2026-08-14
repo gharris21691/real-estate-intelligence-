@@ -76,7 +76,8 @@
         "email"
       ],
       "hold_reasons": [
-        "County response pending for file layout, effective date, and update schedule",
+        "Resolve schema mismatch: layout lists SITUS_STREET_SUB while workbook supplies SITUS_CITY",
+        "Confirm roll effective date and correction schedule",
         "Storage, automated processing, retention, derived-use, and redistribution terms pending",
         "Final field allowlist and parcel-status definitions pending",
         "Real-data validation and operations plans not approved"

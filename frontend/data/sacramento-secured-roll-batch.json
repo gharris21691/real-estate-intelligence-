@@ -1,0 +1,57 @@
+{
+  "agency": "Office of the Assessor",
+  "archive": {
+    "filename": "SecuredPublic Roll 202620260813084856.zip",
+    "member_count": 2,
+    "members": [
+      {
+        "filename": "SECURED layout.doc",
+        "format": "doc",
+        "uncompressed_size_bytes": 23552
+      },
+      {
+        "filename": "secured_roll_public.xlsx",
+        "format": "xlsx",
+        "uncompressed_size_bytes": 86891686
+      }
+    ],
+    "sha256": "b5f50ef5a7a266d2d755752af897d1157add03e73f4db5896d0af7bb81312ac0",
+    "size_bytes": 86362300
+  },
+  "batch_id": "ca-sacramento-secured-roll-2026-20260813",
+  "connection_status": "quarantined_metadata_only",
+  "county": "Sacramento",
+  "field_review": {
+    "prohibited_count": 6,
+    "prohibited_headers": [
+      "CARE_OF",
+      "MAIL_ADDRESS",
+      "MAIL_CITY",
+      "MAIL_STATE",
+      "MAIL_ZIP",
+      "OWNER"
+    ],
+    "provisional_candidate_count": 14,
+    "schema_discrepancies": [
+      "Layout document lists SITUS_STREET_SUB; workbook supplies SITUS_CITY"
+    ],
+    "unresolved_count": 10
+  },
+  "retrieved_date": "2026-08-13",
+  "roll_year": 2026,
+  "safety": {
+    "hosted_exposure": "metadata_and_field_classification_counts_only",
+    "real_data_processing_enabled": false,
+    "row_values_exported": false
+  },
+  "schema_version": 1,
+  "source_name": "2026 Secured Public Roll",
+  "workbook": {
+    "field_count": 30,
+    "last_column": "AD",
+    "record_count": 508557,
+    "row_count_including_header": 508558,
+    "sheet_name": "secured_roll_public",
+    "used_range": "A1:AD508558"
+  }
+}
