@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import dashboardData from "@/data/control-room.json";
+import landUseReference from "@/data/sacramento-land-use-reference.json";
 
 type GateName = "access" | "terms" | "privacy" | "data" | "operations";
 type Source = (typeof dashboardData.sources)[number];
@@ -90,8 +91,12 @@ export default function Home() {
   const [view, setView] = useState<"overview" | "sources">("overview");
   const [selectedSource, setSelectedSource] = useState<Source | null>(null);
   const [verified, setVerified] = useState(false);
+  const [landUseQuery, setLandUseQuery] = useState("");
 
   const executableCount = sources.filter((source) => source.executable).length;
+  const visibleFamilies = landUseReference.general_code_families.filter((family) =>
+    `${family.code_pattern} ${family.description}`.toLowerCase().includes(landUseQuery.toLowerCase()),
+  );
 
   const verifySnapshot = () => {
     setVerified(true);
@@ -114,6 +119,7 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           <button className={view === "overview" ? "nav-active" : ""} onClick={() => setView("overview")}>Overview</button>
           <button className={view === "sources" ? "nav-active" : ""} onClick={() => { setView("sources"); document.querySelector("#sources")?.scrollIntoView(); }}>Sources</button>
+          <a href="#reference">Reference</a>
           <a href="#audit">Audit</a>
         </nav>
         <div className="system-meta">
@@ -124,7 +130,7 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <div className="eyebrow"><span>01 / 04</span> CALIFORNIA PROPERTY INTELLIGENCE</div>
+          <div className="eyebrow"><span>01 / 05</span> CALIFORNIA PROPERTY INTELLIGENCE</div>
           <h1>Order the<br /><em>signal.</em></h1>
           <p>
             A source-grounded intelligence layer for California property research—built to expose provenance, uncertainty, and every approval gate.
@@ -179,7 +185,7 @@ export default function Home() {
       <section className="sources-section" id="sources">
         <div className="sources-heading">
           <div>
-            <div className="eyebrow"><span>03 / 04</span> SOURCE CONTROL</div>
+            <div className="eyebrow"><span>03 / 05</span> SOURCE CONTROL</div>
             <h2>{view === "overview" ? "Trust before" : "Source"}<br /><em>{view === "overview" ? "velocity." : "matrix."}</em></h2>
           </div>
           <p>
@@ -204,9 +210,55 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="reference-section" id="reference">
+        <div className="reference-intro">
+          <div className="eyebrow"><span>04 / 05</span> CONNECTED REFERENCE BATCH</div>
+          <h2>Codes with<br /><em>provenance.</em></h2>
+          <p>
+            Sacramento County Assessor land-use documentation is now indexed from the external data drive. AXIOM receives fingerprints and general code families only—the source files stay local.
+          </p>
+          <div className="reference-badges">
+            <span><i /> REFERENCE READY</span>
+            <span>EFFECTIVE / {landUseReference.effective_date}</span>
+            <span>{landUseReference.assets.length} VERIFIED ASSETS</span>
+          </div>
+        </div>
+        <div className="reference-console">
+          <div className="reference-console-head">
+            <span>SAC-REF-01 / LAND USE CODES</span>
+            <span>EXTERNAL DRIVE ↗ AXIOM</span>
+          </div>
+          <label className="code-search">
+            <span>QUERY CODE FAMILY</span>
+            <input value={landUseQuery} onChange={(event) => setLandUseQuery(event.target.value)} placeholder="Axxxxx or residential" />
+            <i>{String(visibleFamilies.length).padStart(2, "0")}</i>
+          </label>
+          <div className="family-grid">
+            {visibleFamilies.map((family) => (
+              <article className={family.status === "retired" ? "family-card family-card--retired" : "family-card"} key={family.code_pattern}>
+                <code>{family.code_pattern}</code>
+                <span>{family.description}</span>
+                <small>{family.status.toUpperCase()}</small>
+              </article>
+            ))}
+            {!visibleFamilies.length && <p className="no-family-match">NO GENERAL CODE FAMILY MATCHES THIS QUERY</p>}
+          </div>
+          <div className="asset-ledger">
+            {landUseReference.assets.map((asset) => (
+              <article key={asset.asset_id}>
+                <span>{asset.format.toUpperCase()}</span>
+                <div><strong>{asset.filename}</strong><small>{"page_count" in asset ? `${asset.page_count} PAGES` : `${asset.quick_reference_rows} REFERENCE ROWS`}</small></div>
+                <code>{asset.sha256.slice(0, 8)}…{asset.sha256.slice(-8)}</code>
+              </article>
+            ))}
+          </div>
+          <p className="reference-safety"><i /> NO PARCEL, OWNER, OR MAILING RECORDS EXPOSED</p>
+        </div>
+      </section>
+
       <section className="run-section">
         <div className="run-copy">
-          <div className="eyebrow"><span>04 / 04</span> LATEST SYNTHETIC RUN</div>
+          <div className="eyebrow"><span>05 / 05</span> LATEST SYNTHETIC RUN</div>
           <h2>Evidence,<br /><em>intact.</em></h2>
           <p>One immutable fixture. Two normalized observations. Every transformation accounted for.</p>
         </div>
