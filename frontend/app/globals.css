@@ -4,15 +4,15 @@
   --ink: #03090d;
   --ink-soft: #071218;
   --panel: rgba(8, 23, 30, 0.74);
-  --line: rgba(148, 230, 255, 0.16);
-  --line-bright: rgba(154, 236, 255, 0.42);
+  --line: rgba(148, 230, 255, 0.24);
+  --line-bright: rgba(154, 236, 255, 0.56);
   --cyan: #8feaff;
   --cyan-hot: #d0f7ff;
   --blue: #42b8ff;
   --mint: #7dffce;
   --amber: #f1bd68;
   --text: #e9f8fb;
-  --muted: #738a92;
+  --muted: #9aafb7;
 }
 
 * { box-sizing: border-box; }
@@ -23,6 +23,7 @@ body {
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  font-size: 16px;
 }
 button, a { font: inherit; }
 button { color: inherit; }
@@ -244,6 +245,57 @@ h1 em, h2 em { color: var(--cyan); font-family: Georgia, 'Times New Roman', seri
 .batch-detail { margin-top: 28px; border: 1px solid rgba(241,189,104,.25); background: rgba(241,189,104,.025); }.batch-detail-head { padding: 14px 16px; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(241,189,104,.16); color: var(--muted); font-family: var(--font-geist-mono), monospace; font-size: 6px; letter-spacing: .14em; }.batch-detail-head strong { color: var(--amber); font-weight: 400; }.batch-detail-grid { display: grid; grid-template-columns: repeat(4, 1fr); }.batch-detail-grid div { padding: 15px 10px; border-right: 1px solid rgba(241,189,104,.12); display: flex; flex-direction: column; }.batch-detail-grid div:last-child { border: 0; }.batch-detail-grid span, .batch-fingerprint span { color: var(--muted); font-family: var(--font-geist-mono), monospace; font-size: 5px; letter-spacing: .12em; }.batch-detail-grid strong { margin-top: 7px; font-size: 19px; font-weight: 400; }.batch-fingerprint { padding: 14px 16px; border-top: 1px solid rgba(241,189,104,.14); display: flex; justify-content: space-between; }.batch-fingerprint code { color: var(--amber); font-size: 7px; }.batch-detail > p { margin: 0; padding: 14px 16px; border-top: 1px solid rgba(241,189,104,.14); color: #b5a486; font-size: 10px; line-height: 1.5; }
 
 footer { min-height: 150px; padding: 0 4vw; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-family: var(--font-geist-mono), monospace; font-size: 7px; letter-spacing: .16em; }
+
+/* Readability pass: preserve the instrument-panel hierarchy without relying on microtype. */
+.brand strong { font-size: 15px; }
+.brand small { font-size: 9px; line-height: 1.25; }
+nav a, nav button { font-size: 11px; font-weight: 600; }
+.system-meta { font-size: 10px; font-weight: 500; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .18em; }
+.primary-action { font-size: 11px; font-weight: 600; }
+.environment { font-size: 10px; font-weight: 500; }
+.core-kicker, .core-value, .core-coordinates, .core-caption { font-size: 9px; font-weight: 500; }
+.hero-rail { font-size: 9px; }
+.metric-label, .metrics small { font-size: 9px; font-weight: 500; line-height: 1.45; }
+.section-index { font-size: 10px; font-weight: 500; }
+.intake-title > span, .intake-stat span { font-size: 8px; font-weight: 600; }
+.intake-title p { font-size: 12px; line-height: 1.45; }
+.intake-banner > button { font-size: 9px; font-weight: 600; }
+.sources-heading > p, .run-copy > p, .reference-intro > p { font-size: 16px; }
+.source-index { font-size: 11px; }
+.source-identity > span { font-size: 10px; font-weight: 600; }
+.source-identity p { font-size: 12px; line-height: 1.4; }
+.gate { color: #7d929a; font-size: 8px; font-weight: 600; }
+.source-status { font-size: 9px; font-weight: 600; }
+.reference-badges span, .reference-console-head, .code-search > span { font-size: 8px; font-weight: 600; }
+.code-search input { font-size: 18px; }
+.code-search input::placeholder { color: #758a92; }
+.family-card code { font-size: 12px; font-weight: 600; }
+.family-card span { font-size: 13px; line-height: 1.4; }
+.family-card small { font-size: 7px; font-weight: 600; }
+.no-family-match { font-size: 9px; }
+.asset-ledger article > span { font-size: 9px; font-weight: 600; }
+.asset-ledger strong { font-size: 12px; }
+.asset-ledger small, .asset-ledger code, .reference-safety { font-size: 8px; line-height: 1.4; }
+.run-panel-head, .run-ring span, .run-stats span, .fingerprint span { font-size: 9px; font-weight: 500; }
+.fingerprint code { font-size: 11px; }
+.verify-action { font-size: 9px; font-weight: 600; }
+.drawer-head, .drawer-head button { font-size: 9px; font-weight: 600; }
+.drawer-kicker { font-size: 10px; font-weight: 600; }
+.drawer-status { font-size: 8px; font-weight: 500; }
+.drawer-gate { color: #8fa3aa; font-size: 9px; font-weight: 600; }
+.drawer-gate span { font-size: 8px; }
+.drawer-blockers > span { font-size: 9px; font-weight: 600; }
+.drawer-blockers li, .drawer-blockers p { font-size: 14px; line-height: 1.65; }
+.drawer-blockers li:before { font-size: 9px; }
+.drawer-footnote { color: #82979f; font-size: 8px; line-height: 1.5; }
+.batch-detail-head { font-size: 8px; font-weight: 500; }
+.batch-detail-grid span, .batch-fingerprint span { font-size: 7px; font-weight: 600; }
+.batch-detail-grid strong { font-size: 22px; }
+.batch-fingerprint code { font-size: 9px; }
+.batch-detail > p { color: #d1bc99; font-size: 13px; line-height: 1.6; }
+footer { font-size: 9px; font-weight: 500; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
 
 @keyframes rotate { to { transform: rotate(360deg); } }
 @keyframes rotate-reverse { to { transform: rotate(-360deg); } }
