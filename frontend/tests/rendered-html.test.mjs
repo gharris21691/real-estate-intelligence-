@@ -34,6 +34,9 @@ test("server-renders the AXIOM command surface", async () => {
   assert.match(html, /PROPERTY INTELLIGENCE/);
   assert.match(html, /SYNTHETIC ENVIRONMENT/);
   assert.match(html, /Sacramento County Assessor/);
+  assert.match(html, /CONNECTED REFERENCE BATCH/);
+  assert.match(html, /Residential Dwelling Unit/);
+  assert.match(html, /NO PARCEL, OWNER, OR MAILING RECORDS EXPOSED/);
   assert.match(html, /LATEST SYNTHETIC RUN/);
   assert.match(html, /axiom-social-card\.png/);
   assert.doesNotMatch(html, /Your site is taking shape|react-loading-skeleton/);
