@@ -1,0 +1,95 @@
+{
+  "agency": "Office of the Assessor",
+  "assets": [
+    {
+      "asset_id": "operations-manual-36-11b",
+      "filename": "36-11_B_Land Use Code Tables (JG-2023r) (SH-2023) (ES)(2).pdf",
+      "format": "pdf",
+      "page_count": 20,
+      "sha256": "d5c13077e6fbb8eee12e5c4eb8c47c6e511487b8d8cd82ad1df5084b89672e6e",
+      "size_bytes": 116650
+    },
+    {
+      "asset_id": "land-use-quick-reference",
+      "filename": "36-11_CX_Land Use Code Quick Reference.xlsx",
+      "format": "xlsx",
+      "quick_reference_rows": 101,
+      "sha256": "43e3cec4fcd252f01142730cf031b0837019526ea284270bb81b9edd82f1dbeb",
+      "sheet_count": 3,
+      "sheet_names": [
+        "Sheet1",
+        "Sheet2",
+        "Sheet3"
+      ],
+      "size_bytes": 18486
+    }
+  ],
+  "batch_id": "ca-sacramento-assessor-land-use-2023-04",
+  "connection_status": "reference_ready",
+  "county": "Sacramento",
+  "effective_date": "2023-04",
+  "general_code_families": [
+    {
+      "code_pattern": "Axxxxx",
+      "description": "Residential Dwelling Unit",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Bxxxxx",
+      "description": "Retail-Commercial",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Cxxxxx",
+      "description": "Office",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Dxxxxx",
+      "description": "Personal Care and Health",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Exxxxx",
+      "description": "Church & Welfare",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Fxxxxx",
+      "description": "Recreational",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Gxxxxx",
+      "description": "Industrial",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Hxxxxx",
+      "description": "Agriculture",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Ixxxxx",
+      "description": "Vacant",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Mxxxxx",
+      "description": "Miscellaneous",
+      "status": "active"
+    },
+    {
+      "code_pattern": "Wxxxxx",
+      "description": "Public & Utilities",
+      "status": "retired"
+    }
+  ],
+  "reference_name": "Land Use Codes",
+  "safety": {
+    "contains_owner_or_mailing_fields": false,
+    "contains_parcel_records": false,
+    "hosted_exposure": "metadata_and_general_code_families_only"
+  },
+  "schema_version": 1
+}

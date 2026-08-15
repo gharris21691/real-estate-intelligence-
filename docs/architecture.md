@@ -2,7 +2,7 @@
 
 ## Status
 
-Conceptual only. No technology stack or vendor is approved, and no ingestion code should be inferred from this document.
+The source-specific architecture remains conceptual. A local, standard-library Python foundation and SQLite metadata schema are implemented for synthetic testing; no hosting vendor, production database, live connector, or County parser is approved.
 
 ## System boundaries
 
@@ -28,6 +28,17 @@ Every normalized fact must retain the source, retrieval time, source record iden
 - **Human review:** identity resolution and high-impact signals support review and correction.
 - **Minimum necessary data:** collect only fields required for an approved use case.
 - **Jurisdiction-aware:** county and city sources can overlap; the data model preserves the responsible jurisdiction.
+
+## Implemented Phase 1 boundary
+
+- `REI_DATA_ROOT` must resolve outside the Git repository.
+- Source manifests contain filename, size, SHA-256, timing, and source metadata but omit the full external path.
+- The SQLite schema records source definitions, artifacts, runs, parcel observations, and validation issues.
+- Privacy filtering rejects prohibited fields before a record can enter the provisional canonical model.
+- Machine-readable source policies require access, terms, privacy, data, and operations gates; real sources must also be explicitly marked `approved_for_pilot` and enabled.
+- Tests and fixtures are synthetic and do not require the external drive.
+- Approved synthetic runs persist source definitions, artifact fingerprints, normalized observations, reconciliation counts, and non-sensitive issue codes to an ignored local SQLite database.
+- There is no downloader, scraper, scheduled job, live endpoint query, or real-roll parser.
 
 ## Non-functional requirements before a pilot
 

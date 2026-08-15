@@ -1,0 +1,27 @@
+{
+  "fixture_notice": "Synthetic test data only. These records do not describe real parcels.",
+  "records": [
+    {
+      "source_apn": "000-0000-001-0000",
+      "roll_year": 2026,
+      "assessed_land_value": "125000",
+      "assessed_improvement_value": "275000",
+      "total_assessed_value": "400000",
+      "exemption_value": "0",
+      "tax_rate_area_code": "00001",
+      "assessor_land_use_code": "A1A00A",
+      "recorder_book_page": "SYNTHETIC-001"
+    },
+    {
+      "source_apn": "000-0000-002-0000",
+      "roll_year": 2026,
+      "assessed_land_value": "80000",
+      "assessed_improvement_value": null,
+      "total_assessed_value": "80000",
+      "exemption_value": "0",
+      "tax_rate_area_code": "00002",
+      "assessor_land_use_code": "IAE00A",
+      "recorder_book_page": "SYNTHETIC-002"
+    }
+  ]
+}

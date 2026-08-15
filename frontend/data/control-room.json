@@ -1,0 +1,97 @@
+{
+  "environment": "synthetic",
+  "generated_at": "2026-08-14T00:31:32.868036Z",
+  "latest_run": {
+    "accepted_count": 2,
+    "input_count": 2,
+    "input_sha256": "5824810df590eb6403dc679bc563816ddb5d70c1fff8d7b17193d449bea822a1",
+    "issue_counts": {},
+    "reconciliation_passed": true,
+    "records": [
+      {
+        "issue_codes": [],
+        "record_index": 0,
+        "status": "accepted"
+      },
+      {
+        "issue_codes": [],
+        "record_index": 1,
+        "status": "accepted"
+      }
+    ],
+    "rejected_count": 0,
+    "review_count": 0,
+    "transformation_version": "sacramento-synthetic-v1"
+  },
+  "notice": "Synthetic test data only. These records do not describe real parcels.",
+  "schema_version": 1,
+  "sources": [
+    {
+      "allowed_field_count": 0,
+      "approval_status": "access_obtained_compliance_hold",
+      "county": "Sacramento",
+      "data_class": "real",
+      "enabled": false,
+      "executable": false,
+      "gates": {
+        "access": true,
+        "data": false,
+        "operations": false,
+        "privacy": false,
+        "terms": false
+      },
+      "hold_reasons": [
+        "Resolve schema mismatch: layout lists SITUS_STREET_SUB while workbook supplies SITUS_CITY",
+        "Confirm roll effective date and correction schedule",
+        "Storage, automated processing, retention, derived-use, and redistribution terms pending",
+        "Final field allowlist and parcel-status definitions pending",
+        "Real-data validation and operations plans not approved"
+      ],
+      "id": "ca_sacramento_assessor_secured_roll",
+      "prohibited_field_count": 13,
+      "source_name": "Electronic secured assessment roll"
+    },
+    {
+      "allowed_field_count": 0,
+      "approval_status": "access_request_pending",
+      "county": "Sacramento",
+      "data_class": "real",
+      "enabled": false,
+      "executable": false,
+      "gates": {
+        "access": false,
+        "data": false,
+        "operations": false,
+        "privacy": false,
+        "terms": false
+      },
+      "hold_reasons": [
+        "Field-level and automated-use approval pending",
+        "Delivery method, cadence, license, attribution, and rate limits pending",
+        "Final GIS field allowlist and parcel-status definitions pending"
+      ],
+      "id": "ca_sacramento_gis_active_parcel_base",
+      "prohibited_field_count": 8,
+      "source_name": "Active GIS Parcel Base"
+    },
+    {
+      "allowed_field_count": 10,
+      "approval_status": "synthetic_only",
+      "county": "Sacramento",
+      "data_class": "synthetic",
+      "enabled": true,
+      "executable": true,
+      "gates": {
+        "access": true,
+        "data": true,
+        "operations": true,
+        "privacy": true,
+        "terms": true
+      },
+      "hold_reasons": [],
+      "id": "synthetic_sacramento_assessment_fixture",
+      "prohibited_field_count": 13,
+      "source_name": "Synthetic Sacramento assessment fixture"
+    }
+  ]
+}
